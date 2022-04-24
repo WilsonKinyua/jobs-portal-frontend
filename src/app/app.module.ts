@@ -16,6 +16,8 @@ import { FormsModule } from '@angular/forms';
 import { EditJobComponent } from './components/edit-job/edit-job.component';
 import { SearchComponent } from './components/search/search.component';
 import { CategoryComponent } from './components/category/category.component';
+import { PreloaderComponent } from './shared/preloader/preloader.component';
+import { UnderScorePipe } from './pipes/under-score.pipe';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { CategoryComponent } from './components/category/category.component';
     EditJobComponent,
     SearchComponent,
     CategoryComponent,
+    PreloaderComponent,
+    UnderScorePipe,
   ],
   imports: [
     BrowserModule,

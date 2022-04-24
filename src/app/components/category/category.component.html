@@ -5,7 +5,12 @@
     </div>
   </div>
 </section>
-<section class="jobs-list">
+<div class="row text-center">
+  <div class="col-md-12" *ngIf="preloader">
+    <app-preloader></app-preloader>
+  </div>
+</div>
+<section class="jobs-list" *ngIf="!preloader">
   <div class="container">
     <div class="row text-center">
       <div class="col-md-12 mb-4 mt-4" *ngIf="jobs < 1">

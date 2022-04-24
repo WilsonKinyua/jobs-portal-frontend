@@ -18,21 +18,25 @@ export class JobsListComponent implements OnInit {
   jobs: any = [];
   successMessage: any;
   userId: any;
+  preloader = false;
 
   covertDate(date: any) {
     return new Date(date).toLocaleDateString();
   }
 
   ngOnInit(): void {
+    this.preloader = true;
     this.auth.getUserId().subscribe(
       (response) => {
         this.userId = response;
         this.JobService.getUserJobs(this.userId.id).subscribe((response) => {
+          this.preloader = false;
           this.jobs = response;
         });
       },
       (error) => {
-        this.router.navigate(['/login']);
+        this.preloader = false;
+        // this.router.navigate(['/login']);
       }
     );
   }

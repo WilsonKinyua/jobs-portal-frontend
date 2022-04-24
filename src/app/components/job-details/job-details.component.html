@@ -1,4 +1,10 @@
-<section class="top-header">
+<div class="row text-center">
+  <div class="col-md-12" *ngIf="preloader">
+    <app-preloader></app-preloader>
+  </div>
+</div>
+
+<section class="top-header" *ngIf="!preloader">
   <div class="row text-center">
     <div class="col-md-12">
       <h3>{{job.title}} <small>({{job.job_type}})</small> - {{job.company_name}}</h3>
@@ -6,7 +12,7 @@
   </div>
 </section>
 
-<section class="job-description">
+<section class="job-description" *ngIf="!preloader">
   <div class="p-5">
     <div class="row text-center">
       <div class="col-md-12 pb-4">

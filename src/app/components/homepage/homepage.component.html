@@ -16,13 +16,8 @@
               <input type="text" class="form-control" placeholder="Search by job title......" name="query" ngModel
                 #query="ngModel" required>
               <div class="input-group-append">
-                <button class="btn btn-primary btn-search" type="submit" [disabled]="loading">
-                  <span *ngIf="loading">
-                    Loading....
-                  </span>
-                  <span *ngIf="!loading">
-                    Search
-                  </span>
+                <button class="btn btn-primary btn-search" type="submit">
+                  Search
                 </button>
               </div>
             </div>
@@ -36,7 +31,6 @@
     </div>
   </div>
 </section>
-
 <section class="categories">
   <div class="container">
     <div class="row text-center">
@@ -45,6 +39,11 @@
       </div>
     </div>
     <div class="row text-center">
+      <div class="col-md-12" *ngIf="preloader">
+        <app-preloader></app-preloader>
+      </div>
+    </div>
+    <div class="row text-center" *ngIf="!preloader">
       <div class="col" *ngFor="let cat of categories">
         <a routerLink="category/{{cat.id }}">
           <div class="card">
@@ -61,6 +60,8 @@
   </div>
 </section>
 
+
+
 <section class="jobs-list">
   <div class="container">
     <div class="row text-center">
@@ -68,8 +69,12 @@
         <h3>Popular Listed jobs</h3>
       </div>
     </div>
-    <div class="row">
-
+    <div class="row text-center">
+      <div class="col-md-12" *ngIf="preloader">
+        <app-preloader></app-preloader>
+      </div>
+    </div>
+    <div class="row" *ngIf="!preloader">
       <div class="col-md-12" *ngFor="let job of jobs">
         <div class="card">
           <div class="row">

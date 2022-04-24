@@ -27,7 +27,7 @@
               <th scope="col">Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody *ngIf="!preloader">
             <tr *ngFor="let job of jobs">
               <td><strong>{{ job.title }}</strong></td>
               <td>{{ job.job_type }}</td>
@@ -41,6 +41,13 @@
             </tr>
             <tr *ngIf="jobs < 1" class="text-center">
               <td colspan="5">No jobs posted</td>
+            </tr>
+          </tbody>
+          <tbody *ngIf="preloader">
+            <tr class="text-center">
+              <td colspan="5">
+                <app-preloader></app-preloader>
+              </td>
             </tr>
           </tbody>
         </table>

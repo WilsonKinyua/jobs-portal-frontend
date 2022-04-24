@@ -13,7 +13,7 @@ export class HomepageComponent implements OnInit {
   categories: any = [];
   jobs: any = [];
   error = false;
-  loading = false;
+  preloader = false;
 
   constructor(
     private catService: CategoryService,
@@ -27,31 +27,35 @@ export class HomepageComponent implements OnInit {
   }
 
   getCategories() {
+    this.preloader = true;
     this.catService.getCategories().subscribe(
       (response) => {
+        this.preloader = false;
         this.categories = response;
       },
       (error) => {
+        this.preloader = false;
         console.log(error);
       }
     );
   }
 
   getJobsList() {
+    this.preloader = true;
     this.jobService.getJobsList().subscribe(
       (response) => {
+        this.preloader = false;
         this.jobs = response;
       },
       (error) => {
+        this.preloader = false;
         console.log(error);
       }
     );
   }
 
   searchJobs(form: NgForm) {
-    this.loading = true;
     if (form.invalid) {
-      this.loading = false;
       this.error = true;
       return;
     }

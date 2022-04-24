@@ -11,10 +11,13 @@
     <div class="card">
       <form (ngSubmit)="createJob(f)" #f="ngForm">
         <div class="row">
+          <div class="col-md-12 ">
+            <a routerLink="/dashboard/jobs-list" class="btn btn-post-job float-right">My Jobs</a>
+          </div>
           <div class="col-md-12">
             <div *ngIf="error" class="alert alert-danger fade show" role="alert">
               <span *ngFor="let error of errorMessages | keyvalue">
-                <p>{{error.key}} - {{error.value}}</p>
+                <p>{{error.key }} - {{error.value}}</p>
               </span>
             </div>
             <div *ngIf="successMessage" class="alert alert-success fade show" role="alert">

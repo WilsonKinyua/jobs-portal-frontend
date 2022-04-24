@@ -12,17 +12,21 @@ export class JobDetailsComponent implements OnInit {
 
   jobId: any;
   job: any;
+  preloader= false;
 
   ngOnInit(): void {
+    this.preloader = true;
     let paramSub = this.route.params.subscribe(
       (params) => {
         this.jobId = params;
         this.jobId = this.jobId.id;
         this.JobService.getJob(this.jobId).subscribe((response) => {
+          this.preloader = false;
           this.job = response;
         });
       },
       (error) => {
+        this.preloader = false;
         console.error(error);
         paramSub.unsubscribe();
       },

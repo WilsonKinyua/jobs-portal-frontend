@@ -5,7 +5,11 @@
     </div>
   </div>
 </section>
-
+<div class="row text-center">
+  <div class="col-md-12" *ngIf="preloader">
+    <app-preloader></app-preloader>
+  </div>
+</div>
 <section class="create-job">
   <div class="p-3">
     <div class="card">
