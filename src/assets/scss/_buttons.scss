@@ -1,0 +1,13 @@
+.btn-primary,
+.btn-primary:hover {
+  background-color: $main-color;
+  border-color: $main-color;
+  border-radius: 10px;
+  padding: 5px 25px;
+  }
+
+.btn-border-black {
+  background-color: transparent;
+  border: 1px solid #AAAAAA;
+  color: #000000;
+}

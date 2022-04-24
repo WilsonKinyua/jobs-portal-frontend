@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "assets/scss/variables";
+@import "assets/scss/buttons";
+
+body {
+  font-family: $font-family;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+.main-color {
+  color: $main-color;
+}
+
+.main-background {
+  background-color: $main-color;
+}
+
+// navigation bar
+.navbar {
+  padding: 20px;
+  background-color: #fff;
+
+  .nav-item .nav-link {
+    color: $main-color;
+    font-weight: 500;
+    font-size: 17px;
+  }
+
+  .btn-primary {
+    font-weight: 500;
+    font-size: 20px;
+    margin-left: 25px;
+  }
+
+  .navbar-brand {
+    color: $main-color;
+    font-weight: bolder;
+    font-size: 28px;
+  }
+}
