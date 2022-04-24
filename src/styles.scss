@@ -8,6 +8,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  background-color: #fff;
 }
 
 a {
@@ -24,6 +25,10 @@ a {
 
 .main-background {
   background-color: $main-color;
+}
+
+.float-right {
+  float: right;
 }
 
 // navigation bar
@@ -57,7 +62,7 @@ a {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 90vh;
 
   .intro {
     padding: 55px;
@@ -65,8 +70,8 @@ a {
 
   h1 {
     font-weight: bolder;
-    font-size: 70px;
-    line-height: 80px;
+    font-size: 65px;
+    line-height: 70px;
   }
 
   p {
@@ -99,6 +104,7 @@ a {
   .input-group-append button {
     margin-left: 1px;
     height: 55px;
+    border-radius: 0px 10px 10px 0px;
   }
 }
 
@@ -129,6 +135,64 @@ a {
       height: 60px;
       margin-bottom: 20px;
     }
+  }
+}
+
+.jobs-list {
+  .card {
+    margin-bottom: 40px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  }
+
+  .text-muted {
+    font-size: 13px;
+  }
+
+  h4 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .logo {
+    text-align: center;
+    background-color: $main-color;
+    margin: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+
+    h4 {
+      margin-top: 20px;
+      color: #fff;
+      font-weight: 900;
+      font-size: 40px;
+    }
+  }
+
+  .icon i {
+    color: $main-color;
+  }
+
+  .desc p {
+    font-size: 14px;
+  }
+
+  .view-details {
+    text-align: center;
+    margin: 38px 0px 0px 30px;
+    background-color: $main-color;
+    padding: 11px 19px;
+    font-size: 20px;
+    color: #fff;
+  }
+
+  .view-more {
+    background-color: $main-color;
+    padding: 11px 19px;
+    font-size: 20px;
+    color: #fff;
   }
 }
 

@@ -8,4 +8,16 @@
       line-height: 50px;
     }
   }
+
+  .jobs-list {
+    text-align: center;
+
+    .logo {
+      display: none;
+    }
+  }
+
+  .jobs-list .view-details{
+    margin: 10px;
+  }
 }
