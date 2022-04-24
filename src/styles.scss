@@ -49,3 +49,58 @@ a {
     font-size: 28px;
   }
 }
+
+
+// homepage banner section
+.homepage {
+  background-image: url('./assets/img/banner.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+
+  .intro {
+    padding: 55px;
+  }
+
+  h1 {
+    font-weight: bolder;
+    font-size: 70px;
+    line-height: 80px;
+  }
+
+  p {
+    color: #616161d5;
+    line-height: 25px;
+    font-size: 18px;
+  }
+}
+
+.search-form {
+  margin-top: 70px;
+
+  .input-group input {
+    height: 55px;
+    background-color: #fff;
+    border-radius: 20px 0px 0px 20px;
+    border: none;
+
+    &::placeholder {
+      color: #AEB0B4;
+      font-size: 15px;
+    }
+
+    &:focus,
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  .input-group-append button {
+    margin-left: 1px;
+    height: 55px;
+  }
+}
+
+
+@import "assets/scss/responsive";
