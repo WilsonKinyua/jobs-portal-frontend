@@ -34,6 +34,7 @@ a {
 .text-bold {
   font-weight: 600;
 }
+
 // navigation bar
 .navbar {
   padding: 20px;
@@ -58,6 +59,46 @@ a {
   }
 }
 
+.form-group {
+  margin-bottom: 20px;
+
+  label {
+    margin-bottom: 10px;
+  }
+
+  select {
+    height: 49px;
+
+    &:focus,
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  textarea {
+
+    &:focus,
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+  input {
+    height: 49px;
+
+    &::placeholder {
+      color: #AEB0B4;
+      font-size: 15px;
+    }
+
+    &:focus,
+    &:active {
+      box-shadow: none;
+    }
+  }
+
+
+}
 
 // homepage banner section
 .homepage {
@@ -205,5 +246,22 @@ a {
   padding: 40px;
 }
 
+
+// create job page
+.create-job {
+  .card {
+    padding: 30px;
+    border: 1px solid #D6D6D6;
+  }
+
+  .btn-post-job{
+    background-color: $main-color;
+    color: #fff;
+    font-weight: 800;
+    padding: 10px 20px;
+    float: right;
+  }
+
+}
 
 @import "assets/scss/responsive";
