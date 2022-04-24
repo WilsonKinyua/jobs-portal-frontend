@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
           if (this.authService.checkIsUserAuthenticated()) {
             form.reset();
             this.router.navigate(['/dashboard/jobs-list']);
+            window.location.reload();
           }
         },
         (error) => {

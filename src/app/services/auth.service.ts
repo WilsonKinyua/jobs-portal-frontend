@@ -1,4 +1,3 @@
-import { User } from '../shared/models/user';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -18,6 +17,7 @@ export class AuthService {
       password: password,
     });
   }
+
   // register user
   register(
     first_name: string,
@@ -27,32 +27,32 @@ export class AuthService {
     password: string
   ) {
     return this.http.post(environment.apiUrl + '/user/create/', {
-      username: username,
-      first_name: first_name,
-      last_name: last_name,
-      email: email,
-      password: password,
+      username,
+      first_name,
+      last_name,
+      email,
+      password,
     });
   }
+
+  // logout user
   logout(): void {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
+    window.location.reload();
   }
-  getUserLoggedInToken() {
-    return JSON.parse(localStorage.getItem('token') ?? '');
-  }
-  getLoggedUserDetailsLocalStorage(): User {
-    return JSON.parse(localStorage.getItem('user') ?? '');
-  }
-  getUserDetailsToken(token: string) {
-    return this.http.post(environment.apiUrl + '/user/details/', {
-      token: token,
-    });
-  }
+
+  // get user data
   getUserId() {
-    return this.http.get(environment.apiUrl +'/user/' + JSON.parse(localStorage.getItem('token') ?? '').token + '/details/'
+    return this.http.get(
+      environment.apiUrl +
+        '/user/' +
+        JSON.parse(localStorage.getItem('token') ?? '').token +
+        '/details/'
     );
   }
+
+  // check if user is authenticated
   checkIsUserAuthenticated(): boolean {
     return !!localStorage.getItem('token');
   }

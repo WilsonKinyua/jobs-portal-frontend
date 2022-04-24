@@ -1,4 +1,3 @@
-import { AuthService } from 'src/app/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
@@ -9,14 +8,17 @@ import { environment } from 'src/environments/environment';
 export class JobService {
   constructor(private http: HttpClient) {}
 
+  // get jobs list
   getJobsList() {
     return this.http.get(environment.apiUrl + '/jobs/');
   }
 
+  // get job details by id
   getJob(id: number) {
     return this.http.get(environment.apiUrl + '/job/' + id);
   }
 
+  // create job
   createJob(
     company_name: string,
     company_website: string,
@@ -33,22 +35,23 @@ export class JobService {
     user: number
   ) {
     return this.http.post(environment.apiUrl + '/jobs/', {
-      company_name: company_name,
-      company_website: company_website,
-      title: title,
-      category: category,
-      salary_range: salary_range,
-      job_type: job_type,
-      job_description: job_description,
-      location: location,
-      application_deadline: application_deadline,
-      experience: experience,
-      qualification: qualification,
-      link_to_job: link_to_job,
-      user: user,
+      company_name,
+      company_website,
+      title,
+      category,
+      salary_range,
+      job_type,
+      job_description,
+      location,
+      application_deadline,
+      experience,
+      qualification,
+      link_to_job,
+      user,
     });
   }
 
+  // update job
   updateJob(
     company_name: string,
     company_website: string,
@@ -66,22 +69,23 @@ export class JobService {
     user: number
   ) {
     return this.http.put(environment.apiUrl + '/job/' + id, {
-      company_name: company_name,
-      company_website: company_website,
-      title: title,
-      category: category,
-      salary_range: salary_range,
-      job_type: job_type,
-      job_description: job_description,
-      location: location,
-      application_deadline: application_deadline,
-      experience: experience,
-      qualification: qualification,
-      link_to_job: link_to_job,
-      user: user,
+      company_name,
+      company_website,
+      title,
+      category,
+      salary_range,
+      job_type,
+      job_description,
+      location,
+      application_deadline,
+      experience,
+      qualification,
+      link_to_job,
+      user,
     });
   }
 
+  // get user jobs list
   getUserJobs(id: number) {
     return this.http.get(environment.apiUrl + '/user/' + id + '/jobs');
   }
@@ -91,6 +95,7 @@ export class JobService {
     return this.http.get(environment.apiUrl + '/job/search/' + search);
   }
 
+  // delete job
   deleteJob(id: number) {
     return this.http.delete(environment.apiUrl + '/job/' + id);
   }
