@@ -254,12 +254,31 @@ a {
     border: 1px solid #D6D6D6;
   }
 
-  .btn-post-job{
+  .btn-post-job {
     background-color: $main-color;
     color: #fff;
     font-weight: 800;
     padding: 10px 20px;
     float: right;
+  }
+
+}
+
+// jobs lists table
+.jobs-list-table {
+  .card {
+    border: 1px solid #D6D6D6;
+    border-radius: 10px;
+
+    .table tbody tr td,
+    .table thead tr th {
+      padding: 20px 10px;
+    }
+
+    i {
+      font-size: 20px;
+      margin-right: 20px;
+    }
   }
 
 }
