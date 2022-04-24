@@ -98,7 +98,7 @@ a {
   }
 }
 
-.required::after{
+.required::after {
   content: " *";
   color: red;
 }
@@ -285,6 +285,8 @@ a {
   }
 
 }
+
+// auth
 
 .auth .card {
   padding: 20px;
