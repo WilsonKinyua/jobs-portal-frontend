@@ -4,10 +4,29 @@
   border-color: $main-color;
   border-radius: 10px;
   padding: 5px 25px;
-  }
+}
 
-.btn-border-black {
+.btn-border-outline {
   background-color: transparent;
   border: 1px solid #AAAAAA;
   color: #000000;
+  margin-right: 20px;
+
+  &:hover {
+    background-color: $main-color;
+    color: #fff;
+    border: 1px solid $main-color;
+  }
+}
+
+.btn-apply {
+  background-color: $main-color;
+  border: 1px solid $main-color;
+  color: #fff;
+
+  &:hover {
+    background-color: transparent;
+    color: $main-color;
+    border: 1px solid $main-color;
+  }
 }
