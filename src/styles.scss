@@ -102,5 +102,35 @@ a {
   }
 }
 
+// categories list
+.categories {
+  background-color: $bg-color;
+  padding-bottom: 50px;
+
+  .card {
+    background-color: #fff;
+    border: none;
+    padding: 20px;
+    margin-bottom: 50px;
+
+    h4 {
+      font-size: 17px;
+      font-weight: 600;
+    }
+
+    .icon i {
+      background-color: #3385735e;
+      color: #338573;
+      text-align: center;
+      padding-top: 22px;
+      font-size: 20px;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
 
 @import "assets/scss/responsive";
