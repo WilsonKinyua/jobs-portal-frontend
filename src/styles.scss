@@ -96,8 +96,11 @@ a {
       box-shadow: none;
     }
   }
+}
 
-
+.required::after{
+  content: " *";
+  color: red;
 }
 
 // homepage banner section
@@ -281,6 +284,18 @@ a {
     }
   }
 
+}
+
+.auth .card {
+  padding: 20px;
+
+  .login {
+    width: 100%;
+    background-color: $main-color;
+    color: #fff;
+    padding: 10px;
+    font-weight: 700;
+  }
 }
 
 @import "assets/scss/responsive";
