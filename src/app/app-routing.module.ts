@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateJobComponent } from './components/create-job/create-job.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { EditJobComponent } from './components/edit-job/edit-job.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'job-details/:id',
     component: JobDetailsComponent,
+  },
+  {
+    path: 'edit-job/:id',
+    component: EditJobComponent,
   },
   {
     path: 'dashboard/create-a-job',

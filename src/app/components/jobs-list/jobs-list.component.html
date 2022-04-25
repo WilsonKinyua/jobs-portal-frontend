@@ -8,6 +8,13 @@
 
 <section class="jobs-list-table">
   <div class="p-5">
+    <div class="row">
+      <div class="col-md-12">
+        <div *ngIf="successMessage" class="alert alert-success fade show" role="alert">
+          {{successMessage}}
+        </div>
+      </div>
+    </div>
     <div class="card">
       <div class="table-responsive">
         <table class="table">
@@ -28,8 +35,8 @@
               <td>{{ job.application_deadline }}</td>
               <td>
                 <a routerLink="/job-details/{{job.id}}/"><i class="fa fa-eye main-color"></i></a>
-                <a routerLink=""><i class="fa fa-pencil text-primary"></i></a>
-                <a routerLink=""><i class="fa fa-trash text-danger"></i></a>
+                <a routerLink="/edit-job/{{ job.id }}"><i class="fa fa-pencil text-primary"></i></a>
+                <a (click)="deleteJob(job.id)" style="cursor: pointer;"><i class="fa fa-trash text-danger"></i></a>
               </td>
             </tr>
             <tr *ngIf="jobs < 1" class="text-center">

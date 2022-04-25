@@ -55,7 +55,7 @@ export class CreateJobComponent implements OnInit {
         data.application_deadline,
         data.experience,
         data.qualification,
-        data.job_to_job
+        data.job_link
       )
       .subscribe(
         (response) => {

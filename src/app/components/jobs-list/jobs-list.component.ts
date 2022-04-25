@@ -10,6 +10,7 @@ export class JobsListComponent implements OnInit {
   constructor(private JobService: JobService) {}
 
   jobs: any = [];
+  successMessage: any;
 
   covertDate(date: any) {
     return new Date(date).toLocaleDateString();
@@ -22,6 +23,13 @@ export class JobsListComponent implements OnInit {
   getUserLists() {
     this.JobService.getUserJobs().subscribe((response) => {
       this.jobs = response;
+    });
+  }
+
+  deleteJob(id: number) {
+    this.JobService.deleteJob(id).subscribe((response) => {
+      this.getUserLists();
+      this.successMessage = 'Job removed';
     });
   }
 }

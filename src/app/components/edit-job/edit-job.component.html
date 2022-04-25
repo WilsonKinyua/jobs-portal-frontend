@@ -1,0 +1,130 @@
+<section class="top-header">
+  <div class="row text-center">
+    <div class="col-md-12">
+      <h3>Create a Job</h3>
+    </div>
+  </div>
+</section>
+
+<section class="create-job">
+  <div class="p-3">
+    <div class="card">
+      <form (ngSubmit)="updateJob(f)" #f="ngForm">
+        <input type="hidden" name="id" value="{{ job?.id }}">
+        <div class="row">
+          <div class="col-md-12">
+            <div *ngIf="error" class="alert alert-danger fade show" role="alert">
+              <span *ngFor="let error of errorMessages | keyvalue">
+                <p>{{error.key}} - {{error.value}}</p>
+              </span>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div *ngIf="successMessage" class="alert alert-success fade show" role="alert">
+              {{successMessage}}
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="company_name">Company Name</label>
+              <input type="text" class="form-control" name="company_name" placeholder="Name" required ngModel
+                #company_name="ngModel" value="{{ job?.company_name }}">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="company_website">Company Website</label>
+              <input type="url" class="form-control" name="company_website" placeholder="Website Link" required ngModel
+                #company_website="ngModel" value="{{ job?.company_website }}">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="title">Job Title</label>
+              <input type="text" class="form-control" name="title" placeholder="Title" required ngModel #title="ngModel"
+                [value]="job?.title">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="category">Job Category</label>
+              <select name="category" id="category" class="form-select" aria-label="Default select example" required
+                ngModel #category="ngModel">
+                <option value selected disabled>--Select Category--</option>
+                <option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.name}}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="job_type">Job Type</label>
+              <select name="job_type" id="job_type" class="form-select" aria-label="Default select example">
+                <option value="Full Time">Full Time</option>
+                <option value="Part Time">Part Time</option>
+                <option value="Contract">Contract</option>
+                <option value="Confidential">Confidential</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="job_location">Job Location</label>
+              <input type="text" class="form-control" name="job_location" placeholder="Location" required ngModel
+                #location="ngModel" value="{{ job?.job_location }}">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="salary_range">Salary Range</label>
+              <input type="text" class="form-control" name="salary_range" placeholder="Salary Range" required ngModel
+                #salary_range="ngModel" value="{{ job?.salary_range }}">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="salary_range">Experience</label>
+              <input type="number" class="form-control" name="experience" placeholder="Experience" required ngModel
+                #experience="ngModel" value="{{ job?.experience }}">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="salary_range">Qualification</label>
+              <input type="text" class="form-control" name="qualification" placeholder="Qualification" required ngModel
+                #qualification="ngModel" value="{{ job?.qualification }}">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="title">Application Deadline</label>
+              <input type="date" class="form-control" name="application_deadline" placeholder="Job application deadline"
+                required ngModel #application_deadline="ngModel">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="title">Job Application Link</label>
+              <input type="url" class="form-control" name="job_link" placeholder="Job application link url" required
+                ngModel #job_link="ngModel" value="{{ job?.job_link }}">
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label for="title">Job Description</label>
+              <textarea name="job_description" id="job_description" cols="30" rows="10" class="form-control"
+                placeholder="Job Description" ngModel required
+                #job_description="ngModel">{{ job?.job_description }}</textarea>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <button type="submit" class="btn btn-post-job">
+                Update Job
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
