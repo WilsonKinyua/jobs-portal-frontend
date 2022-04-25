@@ -24,17 +24,12 @@ export class JobsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getUserLists();
-    if (!this.auth.checkIsUserAuthenticated()) {
-      this.router.navigate(['/login']);
-    }
-  }
-
-  getCurrentLoggedInUserId() {
     this.auth.getUserId().subscribe(
-      (reponse) => {
-        this.userId = reponse;
-        this.userId = this.userId.id;
+      (response) => {
+        this.userId = response;
+        this.JobService.getUserJobs(this.userId.id).subscribe((response) => {
+          this.jobs = response;
+        });
       },
       (error) => {
         this.router.navigate(['/login']);
@@ -42,15 +37,8 @@ export class JobsListComponent implements OnInit {
     );
   }
 
-  getUserLists() {
-    this.JobService.getUserJobs(this.userId).subscribe((response) => {
-      this.jobs = response;
-    });
-  }
-
   deleteJob(id: number) {
     this.JobService.deleteJob(id).subscribe((response) => {
-      this.getUserLists();
       this.successMessage = 'Job removed';
     });
   }

@@ -7,6 +7,7 @@ import { CreateJobComponent } from './components/create-job/create-job.component
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { EditJobComponent } from './components/edit-job/edit-job.component';
+import { IsUserAuthenticatedGuard } from './guards/is-user-authenticated.guard';
 
 const routes: Routes = [
   {
@@ -20,14 +21,17 @@ const routes: Routes = [
   {
     path: 'edit-job/:id',
     component: EditJobComponent,
+    canActivate: [IsUserAuthenticatedGuard],
   },
   {
     path: 'dashboard/create-a-job',
     component: CreateJobComponent,
+    canActivate: [IsUserAuthenticatedGuard],
   },
   {
     path: 'dashboard/jobs-list',
     component: JobsListComponent,
+    canActivate: [IsUserAuthenticatedGuard],
   },
   {
     path: 'login',

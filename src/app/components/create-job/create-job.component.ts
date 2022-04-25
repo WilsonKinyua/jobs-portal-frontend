@@ -27,9 +27,6 @@ export class CreateJobComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategories();
-    if (!this.auth.checkIsUserAuthenticated()) {
-      this.router.navigate(['/login']);
-    }
     this.getCurrentLoggedInUserId();
   }
 
@@ -81,6 +78,7 @@ export class CreateJobComponent implements OnInit {
           this.successMessage = 'Job created successfully';
           this.errorMessages = null;
           form.reset();
+          this.router.navigate(['/dashboard/jobs-list']);
         },
         (error) => {
           this.loading = false;
@@ -89,12 +87,4 @@ export class CreateJobComponent implements OnInit {
         }
       );
   }
-
-  // get user id
-  // getUserId(token:string){
-  // getUserId() {
-  //   return this.auth.getUserId().subscribe((response) => {
-  //     this.user = response;
-  //   });
-  // }
 }

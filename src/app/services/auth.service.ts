@@ -50,11 +50,7 @@ export class AuthService {
     });
   }
   getUserId() {
-    return this.http.get(
-      environment.apiUrl +
-        '/user/' +
-        this.getUserLoggedInToken().token +
-        '/details/'
+    return this.http.get(environment.apiUrl +'/user/' + JSON.parse(localStorage.getItem('token') ?? '').token + '/details/'
     );
   }
   checkIsUserAuthenticated(): boolean {

@@ -2,7 +2,6 @@ import { AuthService } from 'src/app/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -87,8 +86,8 @@ export class JobService {
     });
   }
 
-  getUserJobs(userId:number) {
-    return this.http.get(environment.apiUrl + '/user/' + userId + '/jobs');
+  getUserJobs(id:number) {
+    return this.http.get(environment.apiUrl + '/user/' + id + '/jobs');
   }
 
   // get jobs by search

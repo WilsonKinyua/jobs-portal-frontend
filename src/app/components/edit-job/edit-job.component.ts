@@ -48,10 +48,6 @@ export class EditJobComponent implements OnInit {
 
     this.getCategories();
 
-    if (!this.auth.checkIsUserAuthenticated()) {
-      this.router.navigate(['/login']);
-    }
-
     this.getCurrentLoggedInUserId();
   }
 
