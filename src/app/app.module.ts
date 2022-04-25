@@ -14,6 +14,8 @@ import { JobsListComponent } from './components/jobs-list/jobs-list.component';
 import { CreateJobComponent } from './components/create-job/create-job.component';
 import { FormsModule } from '@angular/forms';
 import { EditJobComponent } from './components/edit-job/edit-job.component';
+import { SearchComponent } from './components/search/search.component';
+import { CategoryComponent } from './components/category/category.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { EditJobComponent } from './components/edit-job/edit-job.component';
     JobsListComponent,
     CreateJobComponent,
     EditJobComponent,
+    SearchComponent,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,

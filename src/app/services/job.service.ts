@@ -7,11 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class JobService {
-  constructor(
-    private http: HttpClient,
-
-  ) {}
-
+  constructor(private http: HttpClient) {}
 
   getJobsList() {
     return this.http.get(environment.apiUrl + '/jobs/');
@@ -34,7 +30,7 @@ export class JobService {
     experience: string,
     qualification: string,
     link_to_job: string,
-    user:number
+    user: number
   ) {
     return this.http.post(environment.apiUrl + '/jobs/', {
       company_name: company_name,
@@ -67,7 +63,7 @@ export class JobService {
     qualification: string,
     link_to_job: string,
     id: number,
-    user:number
+    user: number
   ) {
     return this.http.put(environment.apiUrl + '/job/' + id, {
       company_name: company_name,
@@ -86,7 +82,7 @@ export class JobService {
     });
   }
 
-  getUserJobs(id:number) {
+  getUserJobs(id: number) {
     return this.http.get(environment.apiUrl + '/user/' + id + '/jobs');
   }
 
@@ -97,5 +93,10 @@ export class JobService {
 
   deleteJob(id: number) {
     return this.http.delete(environment.apiUrl + '/job/' + id);
+  }
+
+  // search jobs by category id
+  getJobsByCategory(id: number) {
+    return this.http.get(environment.apiUrl + '/category/' + id + '/jobs');
   }
 }

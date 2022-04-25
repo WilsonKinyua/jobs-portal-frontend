@@ -28,9 +28,7 @@
             </div>
             <p class="text-danger error-block" *ngIf="!query.valid && query.touched"><small>Cannot be empty</small>
             </p>
-            <p class="text-danger error-block" *ngIf="!error"><small>{{ error }}</small>
-            </p>
-            <p class="text-success error-block" *ngIf="success || !error"><small>{{ success }}</small>
+            <p class="text-danger error-block" *ngIf="error"><small>Please enter a search query</small>
             </p>
           </form>
         </div>
@@ -39,7 +37,7 @@
   </div>
 </section>
 
-<section class="categories" *ngIf="catDisplay">
+<section class="categories">
   <div class="container">
     <div class="row text-center">
       <div class="col-md-12 mb-4 mt-4">
@@ -48,14 +46,16 @@
     </div>
     <div class="row text-center">
       <div class="col" *ngFor="let cat of categories">
-        <div class="card">
-          <div class="icon">
-            <i class="{{cat.icon}}"></i>
+        <a routerLink="category/{{cat.id }}">
+          <div class="card">
+            <div class="icon">
+              <i class="{{cat.icon}}"></i>
+            </div>
+            <h4 class="main-color">
+              {{cat.name }}
+            </h4>
           </div>
-          <h4 class="main-color">
-            {{cat.name }}
-          </h4>
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -66,9 +66,6 @@
     <div class="row text-center">
       <div class="col-md-12 mb-4 mt-4">
         <h3>Popular Listed jobs</h3>
-      </div>
-      <div class="col-md-12 mb-4 mt-4" *ngIf="jobs < 1">
-        <p class="text-danger"><small>No search results found</small></p>
       </div>
     </div>
     <div class="row">

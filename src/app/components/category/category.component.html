@@ -1,0 +1,53 @@
+<section class="top-header">
+  <div class="row text-center">
+    <div class="col-md-12">
+      <h3>Category Job List </h3>
+    </div>
+  </div>
+</section>
+<section class="jobs-list">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col-md-12 mb-4 mt-4" *ngIf="jobs < 1">
+        <p class="text-danger">No jobs in the selected category!</p>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-12" *ngFor="let job of jobs">
+        <div class="card">
+          <div class="row">
+            <div class="col-md-9">
+              <div class="row">
+                <div class="col-md-4 logo">
+                  <h4>J</h4>
+                </div>
+                <div class="col-md-8 pt-3">
+                  <p class="text-muted">
+                    {{job.company_name}}
+                  </p>
+                  <h4>{{job.title}} ({{job.experience}} Year Exp.)</h4>
+                  <div class="row desc">
+                    <div class="col-md-4">
+                      <p><span class="icon"><i class="fa fa-location-arrow"></i></span> {{job.location}}</p>
+                    </div>
+                    <div class="col-md-4">
+                      <p><span class="icon"><i class="fa fa-expand"></i></span> {{job.job_type}}</p>
+                    </div>
+                    <div class="col-md-4">
+                      <p><span class="icon"><i class="fa fa-money"></i></span> Ksh {{job.salary_range}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 float-right">
+              <a routerLink="/job-details/{{job.id}}/" class="btn view-details">
+                View Details
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

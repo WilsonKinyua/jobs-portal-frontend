@@ -1,3 +1,4 @@
+import { CategoryComponent } from './components/category/category.component';
 import { JobsListComponent } from './components/jobs-list/jobs-list.component';
 import { JobDetailsComponent } from './components/job-details/job-details.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
@@ -8,6 +9,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { EditJobComponent } from './components/edit-job/edit-job.component';
 import { IsUserAuthenticatedGuard } from './guards/is-user-authenticated.guard';
+import { SearchComponent } from './components/search/search.component';
 
 const routes: Routes = [
   {
@@ -40,6 +42,18 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: 'search/:search',
+    component: SearchComponent,
+  },
+  {
+    path: 'category/:category',
+    component: CategoryComponent,
+  },
+  {
+    path: '**',
+    redirectTo: '',
   },
 ];
 
