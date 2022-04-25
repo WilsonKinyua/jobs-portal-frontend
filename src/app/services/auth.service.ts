@@ -1,7 +1,6 @@
 import { User } from '../shared/models/user';
 import { Injectable } from '@angular/core';
-import { catchError, map, Observable, retry, throwError } from 'rxjs';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 
@@ -9,7 +8,6 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
-  user!: Observable<User>;
   errorMessage: string = '';
   constructor(private http: HttpClient, private router: Router) {}
 

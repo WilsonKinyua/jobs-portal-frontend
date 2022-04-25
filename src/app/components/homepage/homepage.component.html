@@ -35,88 +35,20 @@
       </div>
     </div>
     <div class="row text-center">
-      <div class="col">
-        <div class="card">
-          <div class="icon">
-            <i class="fa fa-desktop"></i>
+
+      <div class="col" *ngFor="let cat of categories">
+        <a href="{{cat.id}}">
+          <div class="card">
+            <div class="icon">
+              <i class="{{cat.icon}}"></i>
+            </div>
+            <h4 class="main-color">
+              {{cat.name }}
+            </h4>
           </div>
-          <h4>Technology</h4>
-        </div>
+        </a>
       </div>
-      <div class="col">
-        <div class="card">
-          <div class="icon">
-            <i class="fa fa-desktop"></i>
-          </div>
-          <h4>Technology</h4>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="icon">
-            <i class="fa fa-desktop"></i>
-          </div>
-          <h4>Technology</h4>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="icon">
-            <i class="fa fa-desktop"></i>
-          </div>
-          <h4>Technology</h4>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="icon">
-            <i class="fa fa-desktop"></i>
-          </div>
-          <h4>Technology</h4>
-        </div>
-      </div>
-    </div>
-    <div class="row text-center">
-      <div class="col">
-        <div class="card">
-          <div class="icon">
-            <i class="fa fa-desktop"></i>
-          </div>
-          <h4>Technology</h4>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="icon">
-            <i class="fa fa-desktop"></i>
-          </div>
-          <h4>Technology</h4>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="icon">
-            <i class="fa fa-desktop"></i>
-          </div>
-          <h4>Technology</h4>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="icon">
-            <i class="fa fa-desktop"></i>
-          </div>
-          <h4>Technology</h4>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card">
-          <div class="icon">
-            <i class="fa fa-desktop"></i>
-          </div>
-          <h4>Technology</h4>
-        </div>
-      </div>
+
     </div>
   </div>
 </section>
