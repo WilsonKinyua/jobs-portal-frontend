@@ -13,7 +13,11 @@ export class LoginComponent implements OnInit {
   errorMessage: any;
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.authService.checkIsUserAuthenticated()) {
+      this.router.navigate(['/dashboard/jobs-list']);
+    }
+  }
 
   loginUser(form: NgForm) {
     this.loading = true;

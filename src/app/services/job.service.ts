@@ -1,12 +1,18 @@
+import { AuthService } from 'src/app/services/auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Job } from '../shared/models/job';
+import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root',
 })
 export class JobService {
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+
+  ) {}
+
 
   getJobsList() {
     return this.http.get(environment.apiUrl + '/jobs/');
@@ -28,7 +34,8 @@ export class JobService {
     application_deadline: string,
     experience: string,
     qualification: string,
-    link_to_job: string
+    link_to_job: string,
+    user:number
   ) {
     return this.http.post(environment.apiUrl + '/jobs/', {
       company_name: company_name,
@@ -43,7 +50,7 @@ export class JobService {
       experience: experience,
       qualification: qualification,
       link_to_job: link_to_job,
-      user: 1,
+      user: user,
     });
   }
 
@@ -60,7 +67,8 @@ export class JobService {
     experience: string,
     qualification: string,
     link_to_job: string,
-    id: number
+    id: number,
+    user:number
   ) {
     return this.http.put(environment.apiUrl + '/job/' + id, {
       company_name: company_name,
@@ -75,12 +83,12 @@ export class JobService {
       experience: experience,
       qualification: qualification,
       link_to_job: link_to_job,
-      user: 1,
+      user: user,
     });
   }
 
-  getUserJobs() {
-    return this.http.get(environment.apiUrl + '/user/' + 1 + '/jobs');
+  getUserJobs(userId:number) {
+    return this.http.get(environment.apiUrl + '/user/' + userId + '/jobs');
   }
 
   // get jobs by search

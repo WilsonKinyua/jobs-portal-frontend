@@ -50,7 +50,12 @@ export class AuthService {
     });
   }
   getUserId() {
-    return this.http.get(environment.apiUrl + '​/user​/details​/');
+    return this.http.get(
+      environment.apiUrl +
+        '/user/' +
+        this.getUserLoggedInToken().token +
+        '/details/'
+    );
   }
   checkIsUserAuthenticated(): boolean {
     return !!localStorage.getItem('token');

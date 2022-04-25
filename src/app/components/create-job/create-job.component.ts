@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CategoryService } from 'src/app/services/category.service';
 import { JobService } from 'src/app/services/job.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-job',
@@ -13,7 +14,8 @@ export class CreateJobComponent implements OnInit {
   constructor(
     private catService: CategoryService,
     private jobAuth: JobService,
-    private auth: AuthService
+    private auth: AuthService,
+    private router: Router
   ) {}
 
   categories: any = [];
@@ -21,11 +23,26 @@ export class CreateJobComponent implements OnInit {
   successMessage: any;
   error = false;
   loading = false;
-  user: any;
+  userId: any;
 
   ngOnInit(): void {
     this.getCategories();
-    // console.log(this.getUserId());
+    if (!this.auth.checkIsUserAuthenticated()) {
+      this.router.navigate(['/login']);
+    }
+    this.getCurrentLoggedInUserId();
+  }
+
+  getCurrentLoggedInUserId() {
+    this.auth.getUserId().subscribe(
+      (reponse) => {
+        this.userId = reponse;
+        this.userId = this.userId.id;
+      },
+      (error) => {
+        this.router.navigate(['/login']);
+      }
+    );
   }
 
   getCategories() {
@@ -55,7 +72,8 @@ export class CreateJobComponent implements OnInit {
         data.application_deadline,
         data.experience,
         data.qualification,
-        data.job_link
+        data.job_link,
+        this.userId
       )
       .subscribe(
         (response) => {

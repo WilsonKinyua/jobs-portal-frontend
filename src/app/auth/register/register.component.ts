@@ -1,6 +1,7 @@
 import { NgForm } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,9 +12,13 @@ export class RegisterComponent implements OnInit {
   loading = false;
   errorMessage: any;
   successMessage: any;
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.authService.checkIsUserAuthenticated()) {
+      this.router.navigate(['/dashboard/jobs-list']);
+    }
+  }
 
   registerUser(form: NgForm) {
     this.loading = true;

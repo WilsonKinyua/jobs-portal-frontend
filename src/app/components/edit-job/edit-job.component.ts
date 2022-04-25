@@ -1,8 +1,9 @@
 import { CategoryService } from 'src/app/services/category.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { JobService } from 'src/app/services/job.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-edit-job',
@@ -13,7 +14,9 @@ export class EditJobComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private JobService: JobService,
-    private CategoryService: CategoryService
+    private CategoryService: CategoryService,
+    private router: Router,
+    private auth: AuthService
   ) {}
 
   jobId: any;
@@ -22,6 +25,7 @@ export class EditJobComponent implements OnInit {
   errorMessages: any;
   successMessage: any;
   error = false;
+  userId: any;
 
   ngOnInit(): void {
     let paramSub = this.route.params.subscribe(
@@ -43,6 +47,24 @@ export class EditJobComponent implements OnInit {
     );
 
     this.getCategories();
+
+    if (!this.auth.checkIsUserAuthenticated()) {
+      this.router.navigate(['/login']);
+    }
+
+    this.getCurrentLoggedInUserId();
+  }
+
+  getCurrentLoggedInUserId() {
+    this.auth.getUserId().subscribe(
+      (reponse) => {
+        this.userId = reponse;
+        this.userId = this.userId.id;
+      },
+      (error) => {
+        this.router.navigate(['/login']);
+      }
+    );
   }
 
   getCategories() {
@@ -71,7 +93,8 @@ export class EditJobComponent implements OnInit {
       data.experience,
       data.qualification,
       data.job_link,
-      this.jobId
+      this.jobId,
+      this.userId
     ).subscribe(
       (response) => {
         this.successMessage = 'Job updated successfully';
