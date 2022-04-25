@@ -44,11 +44,14 @@ export class AuthService {
   getLoggedUserDetailsLocalStorage(): User {
     return JSON.parse(localStorage.getItem('user') ?? '');
   }
-  // getUserDetailsToken(token: string) {
-  //   return this.http.post(environment.apiUrl + '/user/details/', {
-  //     token: token,
-  //   });
-  // }
+  getUserDetailsToken(token: string) {
+    return this.http.post(environment.apiUrl + '/user/details/', {
+      token: token,
+    });
+  }
+  getUserId() {
+    return this.http.get(environment.apiUrl + '​/user​/details​/');
+  }
   checkIsUserAuthenticated(): boolean {
     return !!localStorage.getItem('token');
   }

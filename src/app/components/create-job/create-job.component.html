@@ -9,31 +9,46 @@
 <section class="create-job">
   <div class="p-3">
     <div class="card">
-      <form action="">
+      <form (ngSubmit)="createJob(f)" #f="ngForm">
         <div class="row">
+          <div class="col-md-12">
+            <div *ngIf="error" class="alert alert-danger fade show" role="alert">
+              <span *ngFor="let error of errorMessages | keyvalue">
+                <p>{{error.key}} - {{error.value}}</p>
+              </span>
+            </div>
+            <div *ngIf="successMessage" class="alert alert-success fade show" role="alert">
+              {{successMessage}}
+            </div>
+          </div>
           <div class="col-md-6">
             <div class="form-group">
               <label for="company_name">Company Name</label>
-              <input type="text" class="form-control" name="company_name" placeholder="Name" required>
+              <input type="text" class="form-control" name="company_name" placeholder="Name" required ngModel
+                #company_name="ngModel">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <label for="company_website">Company Website</label>
-              <input type="text" class="form-control" name="company_website" placeholder="Website Link" required>
+              <input type="url" class="form-control" name="company_website" placeholder="Website Link" required ngModel
+                #company_website="ngModel">
             </div>
           </div>
           <div class="col-md-12">
             <div class="form-group">
               <label for="title">Job Title</label>
-              <input type="text" class="form-control" name="title" placeholder="Title" required>
+              <input type="text" class="form-control" name="title" placeholder="Title" required ngModel
+                #title="ngModel">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <label for="category">Job Category</label>
-              <select name="category" id="category" class="form-select" aria-label="Default select example">
-                <option value="">Technology</option>
+              <select name="category" id="category" class="form-select" aria-label="Default select example" required
+                ngModel #category="ngModel">
+                <option value selected disabled>--Select Category--</option>
+                <option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.name}}</option>
               </select>
             </div>
           </div>
@@ -41,55 +56,73 @@
             <div class="form-group">
               <label for="job_type">Job Type</label>
               <select name="job_type" id="job_type" class="form-select" aria-label="Default select example">
-                <option value="">Full Time</option>
+                <option value="Full Time">Full Time</option>
+                <option value="Part Time">Part Time</option>
+                <option value="Contract">Contract</option>
+                <option value="Confidential">Confidential</option>
               </select>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <label for="job_location">Job Location</label>
-              <input type="text" class="form-control" name="job_location" placeholder="Location" required>
+              <input type="text" class="form-control" name="job_location" placeholder="Location" required ngModel
+                #location="ngModel">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label for="salary_range">Salary Ranger</label>
-              <input type="text" class="form-control" name="salary_range" placeholder="Salary Ranger" required>
+              <label for="salary_range">Salary Range</label>
+              <input type="text" class="form-control" name="salary_range" placeholder="Salary Range" required ngModel
+                #salary_range="ngModel">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <label for="salary_range">Experience</label>
-              <input type="number" class="form-control" name="experience" placeholder="Experience" required>
+              <input type="number" class="form-control" name="experience" placeholder="Experience" required ngModel
+                #experience="ngModel">
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
               <label for="salary_range">Qualification</label>
-              <input type="text" class="form-control" name="qualification" placeholder="Qualification" required>
+              <input type="text" class="form-control" name="qualification" placeholder="Qualification" required ngModel
+                #qualification="ngModel">
             </div>
           </div>
           <div class="col-md-12">
             <div class="form-group">
               <label for="title">Application Deadline</label>
-              <input type="text" class="form-control" name="application_deadline" placeholder="Job application deadline" required>
+              <input type="date" class="form-control" name="application_deadline" placeholder="Job application deadline"
+                required ngModel #application_deadline="ngModel">
             </div>
           </div>
           <div class="col-md-12">
             <div class="form-group">
               <label for="title">Job Application Link</label>
-              <input type="url" class="form-control" name="job_link" placeholder="Job application link url" required>
+              <input type="url" class="form-control" name="job_link" placeholder="Job application link url" required
+                ngModel #job_link="ngModel">
             </div>
           </div>
           <div class="col-md-12">
             <div class="form-group">
               <label for="title">Job Description</label>
-              <textarea name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Job Description"></textarea>
+              <textarea name="job_description" id="job_description" cols="30" rows="10" class="form-control"
+                placeholder="Job Description" ngModel required #job_description="ngModel"></textarea>
             </div>
           </div>
           <div class="col-md-12">
             <div class="form-group">
-              <button type="submit" class="btn btn-post-job">Post Job</button>
+              <button type="submit" class="btn btn-post-job" [disabled]="loading
+              ">
+                <span *ngIf="loading">
+                  Loading....
+                </span>
+                <span *ngIf="!loading">
+                  Post Job
+                </span>
+              </button>
             </div>
           </div>
         </div>

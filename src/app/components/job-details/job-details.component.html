@@ -1,7 +1,7 @@
 <section class="top-header">
   <div class="row text-center">
     <div class="col-md-12">
-      <h3>Laravel Developer <small>(Full Time)</small> - Match Company Limited</h3>
+      <h3>{{job.title}} <small>({{job.job_type}})</small> - {{job.company_name}}</h3>
     </div>
   </div>
 </section>
@@ -10,62 +10,25 @@
   <div class="p-5">
     <div class="row text-center">
       <div class="col-md-12 pb-4">
-        <button class="btn btn-border-outline mb-4">View Company</button>
-        <button class="btn btn-apply mb-4">Apply This Job</button>
+        <a href="{{job.company_website}}" target="_blank" class="btn btn-border-outline mb-4">View Company</a>
+        <a href="{{job.job_link}}" target="_blank" class="btn btn-apply mb-4">Apply This Job</a>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
         <p>
-          <strong> Minimum Qualification:</strong> Bachelor
+          <strong> Minimum Qualification:</strong> {{job.qualification}}
         </p>
-        <p> <strong>Experience Level:</strong> Mid level </p>
-        <p> <strong>Experience Length:</strong> 2 years </p>
-        <p> <strong>Location:</strong> San Francisco, USA </p>
-        <p> <strong>Application Deadline:</strong> 12/08/2022 </p>
-        <p> <strong>Salary Range:</strong> $ 105,000 - 150,000
+        <p> <strong>Experience Length:</strong> {{job.experience}} years </p>
+        <p> <strong>Location:</strong> {{job.location }} </p>
+        <p> <strong>Application Deadline:</strong> {{job.application_deadline }} </p>
+        <p> <strong>Salary Range:</strong> Ksh {{job.salary_range }}
         </p>
         <h5 class="text-bold">
           Job description
         </h5>
         <p class="text-muted">
-          We are searching for a Laravel developer to build web applications for our company. In this role, you will
-          design and create projects using
-          Laravel framework and PHP, and assist the team in delivering high-quality web applications, services, and
-          tools for our business.
-        </p>
-        <p class="text-muted">
-          We are searching for a Laravel developer to build web applications for our company. In this role, you will
-          design and create projects using
-          Laravel framework and PHP, and assist the team in delivering high-quality web applications, services, and
-          tools for our business.
-        </p>
-        <p class="text-muted">
-          We are searching for a Laravel developer to build web applications for our company. In this role, you will
-          design and create projects using
-          Laravel framework and PHP, and assist the team in delivering high-quality web applications, services, and
-          tools for our business.
-        </p>
-        <p class="text-muted">
-          We are searching for a Laravel developer to build web applications for our company. In this role, you will
-          design and create projects using
-          Laravel framework and PHP, and assist the team in delivering high-quality web applications, services, and
-          tools for our business.
-        </p>
-        <h5 class="text-bold">
-          Laravel Developer Requirements:
-        </h5>
-        <p class="text-muted">
-         - A degree in programming, computer science, or a related field.
-         <br> - Experience working with PHP, performing unit testing, and managing APIs such as REST.
-         <br> - A solid understanding of application design using Laravel.
-         <br> - Knowledge of database design and querying using SQL.
-         <br> - Proficiency in HTML and JavaScript. Experience developing in Vue is considered a plus.
-         <br> - Practical experience using the MVC architecture.
-         <br> - The ability to work on LAMP development environment
-         <br> - Problem-solving skills and critical mindset.
-         <br> - Great communication skills.
-         <br> - The desire and ability to learn.
+          {{job.job_description}}
         </p>
       </div>
     </div>

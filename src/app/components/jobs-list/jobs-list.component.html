@@ -21,93 +21,19 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><strong>Laravel Developer</strong></td>
-              <td>Full Time</td>
-              <td>12/06/2022</td>
-              <td>Full Time</td>
+            <tr *ngFor="let job of jobs">
+              <td><strong>{{ job.title }}</strong></td>
+              <td>{{ job.job_type }}</td>
+              <td>{{ covertDate(job.created_at) }}</td>
+              <td>{{ job.application_deadline }}</td>
               <td>
-                <a routerLink=""><i class="fa fa-eye main-color"></i></a>
+                <a routerLink="/job-details/{{job.id}}/"><i class="fa fa-eye main-color"></i></a>
                 <a routerLink=""><i class="fa fa-pencil text-primary"></i></a>
                 <a routerLink=""><i class="fa fa-trash text-danger"></i></a>
               </td>
             </tr>
-            <tr>
-              <td><strong>Laravel Developer</strong></td>
-              <td>Full Time</td>
-              <td>12/06/2022</td>
-              <td>Full Time</td>
-              <td>
-                <a routerLink=""><i class="fa fa-eye main-color"></i></a>
-                <a routerLink=""><i class="fa fa-pencil text-primary"></i></a>
-                <a routerLink=""><i class="fa fa-trash text-danger"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Laravel Developer</strong></td>
-              <td>Full Time</td>
-              <td>12/06/2022</td>
-              <td>Full Time</td>
-              <td>
-                <a routerLink=""><i class="fa fa-eye main-color"></i></a>
-                <a routerLink=""><i class="fa fa-pencil text-primary"></i></a>
-                <a routerLink=""><i class="fa fa-trash text-danger"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Laravel Developer</strong></td>
-              <td>Full Time</td>
-              <td>12/06/2022</td>
-              <td>Full Time</td>
-              <td>
-                <a routerLink=""><i class="fa fa-eye main-color"></i></a>
-                <a routerLink=""><i class="fa fa-pencil text-primary"></i></a>
-                <a routerLink=""><i class="fa fa-trash text-danger"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Laravel Developer</strong></td>
-              <td>Full Time</td>
-              <td>12/06/2022</td>
-              <td>Full Time</td>
-              <td>
-                <a routerLink=""><i class="fa fa-eye main-color"></i></a>
-                <a routerLink=""><i class="fa fa-pencil text-primary"></i></a>
-                <a routerLink=""><i class="fa fa-trash text-danger"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Laravel Developer</strong></td>
-              <td>Full Time</td>
-              <td>12/06/2022</td>
-              <td>Full Time</td>
-              <td>
-                <a routerLink=""><i class="fa fa-eye main-color"></i></a>
-                <a routerLink=""><i class="fa fa-pencil text-primary"></i></a>
-                <a routerLink=""><i class="fa fa-trash text-danger"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Laravel Developer</strong></td>
-              <td>Full Time</td>
-              <td>12/06/2022</td>
-              <td>Full Time</td>
-              <td>
-                <a routerLink=""><i class="fa fa-eye main-color"></i></a>
-                <a routerLink=""><i class="fa fa-pencil text-primary"></i></a>
-                <a routerLink=""><i class="fa fa-trash text-danger"></i></a>
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Laravel Developer</strong></td>
-              <td>Full Time</td>
-              <td>12/06/2022</td>
-              <td>Full Time</td>
-              <td>
-                <a routerLink=""><i class="fa fa-eye main-color"></i></a>
-                <a routerLink=""><i class="fa fa-pencil text-primary"></i></a>
-                <a routerLink=""><i class="fa fa-trash text-danger"></i></a>
-              </td>
+            <tr *ngIf="jobs < 1" class="text-center">
+              <td colspan="5">No jobs posted</td>
             </tr>
           </tbody>
         </table>
