@@ -60,7 +60,7 @@ export class JobService {
     experience: string,
     qualification: string,
     link_to_job: string,
-    id:number
+    id: number
   ) {
     return this.http.put(environment.apiUrl + '/job/' + id, {
       company_name: company_name,
@@ -81,6 +81,11 @@ export class JobService {
 
   getUserJobs() {
     return this.http.get(environment.apiUrl + '/user/' + 1 + '/jobs');
+  }
+
+  // get jobs by search
+  getJobsBySearch(search: string) {
+    return this.http.get(environment.apiUrl + '/job/search/' + search);
   }
 
   deleteJob(id: number) {

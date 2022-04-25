@@ -61,10 +61,11 @@ export class CreateJobComponent implements OnInit {
         (response) => {
           this.loading = false;
           this.successMessage = 'Job created successfully';
+          this.errorMessages = null;
           form.reset();
         },
         (error) => {
-          this.loading = true;
+          this.loading = false;
           this.error = true;
           this.errorMessages = error.error;
         }

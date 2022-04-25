@@ -1,3 +1,4 @@
+import { NgForm } from '@angular/forms';
 import { CategoryService } from './../../services/category.service';
 import { Component, OnInit } from '@angular/core';
 import { JobService } from 'src/app/services/job.service';
@@ -10,6 +11,10 @@ import { JobService } from 'src/app/services/job.service';
 export class HomepageComponent implements OnInit {
   categories: any = [];
   jobs: any = [];
+  error: any;
+  success: any;
+  loading = false;
+  catDisplay = true;
 
   constructor(
     private catService: CategoryService,
@@ -39,6 +44,22 @@ export class HomepageComponent implements OnInit {
       },
       (error) => {
         console.log(error);
+        this.error = 'No such results';
+      }
+    );
+  }
+
+  searchJobs(form: NgForm) {
+    this.loading = true;
+    this.jobService.getJobsBySearch(form.form.value.query).subscribe(
+      (response) => {
+        this.loading = false;
+        this.catDisplay = false;
+        this.jobs = response;
+        this.success = "Below is your search results";
+      },
+      (error) => {
+        this.loading = false;
       }
     );
   }

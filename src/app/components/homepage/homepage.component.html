@@ -11,15 +11,27 @@
           internships.
         </p>
         <div class="search-form">
-          <form class="search">
+          <form class="search" (ngSubmit)="searchJobs(f)" #f="ngForm">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search by job title......" name="query" required>
+              <input type="text" class="form-control" placeholder="Search by job title......" name="query" ngModel
+                #query="ngModel" required>
               <div class="input-group-append">
-                <button class="btn btn-primary btn-search" type="submit">
-                  Search
+                <button class="btn btn-primary btn-search" type="submit" [disabled]="loading">
+                  <span *ngIf="loading">
+                    Loading....
+                  </span>
+                  <span *ngIf="!loading">
+                    Search
+                  </span>
                 </button>
               </div>
             </div>
+            <p class="text-danger error-block" *ngIf="!query.valid && query.touched"><small>Cannot be empty</small>
+            </p>
+            <p class="text-danger error-block" *ngIf="!error"><small>{{ error }}</small>
+            </p>
+            <p class="text-success error-block" *ngIf="success || !error"><small>{{ success }}</small>
+            </p>
           </form>
         </div>
       </div>
@@ -27,7 +39,7 @@
   </div>
 </section>
 
-<section class="categories">
+<section class="categories" *ngIf="catDisplay">
   <div class="container">
     <div class="row text-center">
       <div class="col-md-12 mb-4 mt-4">
@@ -54,6 +66,9 @@
     <div class="row text-center">
       <div class="col-md-12 mb-4 mt-4">
         <h3>Popular Listed jobs</h3>
+      </div>
+      <div class="col-md-12 mb-4 mt-4" *ngIf="jobs < 1">
+        <p class="text-danger"><small>No search results found</small></p>
       </div>
     </div>
     <div class="row">
