@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   isLoggedIn = false;
 
   ngOnInit(): void {
-    if (this.authService.checkIsUserAuthenticated()) {
+    if (!this.authService.checkIsUserAuthenticated()) {
       this.isLoggedIn = true;
     }
   }
