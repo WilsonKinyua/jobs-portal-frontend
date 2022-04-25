@@ -20,6 +20,22 @@ export class AuthService {
       password: password,
     });
   }
+  // register user
+  register(
+    first_name: string,
+    last_name: string,
+    email: string,
+    username: string,
+    password: string
+  ) {
+    return this.http.post(environment.apiUrl + '/user/create/', {
+      username: username,
+      first_name: first_name,
+      last_name: last_name,
+      email: email,
+      password: password,
+    });
+  }
   logout(): void {
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
