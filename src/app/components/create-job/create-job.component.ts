@@ -27,20 +27,21 @@ export class CreateJobComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategories();
-    // this.getCurrentLoggedInUserId();
+    this.getCurrentLoggedInUserId();
   }
 
-  // getCurrentLoggedInUserId() {
-  //   this.auth.getUserId().subscribe(
-  //     (reponse) => {
-  //       this.userId = reponse;
-  //       this.userId = this.userId.id;
-  //     },
-  //     (error) => {
-  //       this.router.navigate(['/login']);
-  //     }
-  //   );
-  // }
+  getCurrentLoggedInUserId() {
+    this.auth.getUserId().subscribe(
+      (reponse) => {
+        this.userId = reponse;
+        this.userId = this.userId.id;
+        console.log(this.userId);
+      },
+      (error) => {
+        this.router.navigate(['/login']);
+      }
+    );
+  }
 
   getCategories() {
     this.catService.getCategories().subscribe(
