@@ -90,7 +90,6 @@ So far so good there are no bugs related to this project 😎
 To make a contribution to the code used or any suggestions you can click on the contact link and email me your suggestions.
 
 - Email: wilsonkinyuam@gmail.com
-- Phone: +254 717 255 460
 
 ## License
 
