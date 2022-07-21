@@ -1,6 +1,6 @@
 # JobsPortal
 
-#### Created By Wilson Kinyua Muthoni on 25-04-2022
+#### Created By Wilson Kinyua on 25-04-2022
 
 ## Design Link
 
